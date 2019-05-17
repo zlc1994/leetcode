@@ -5,17 +5,17 @@ import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
+import util.StringUtil;
 
-import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
-@State(Scope.Thread)
+@State(Scope.Benchmark)
 public class SolutionBenchMark3 {
-    private StringBuilder stringBuilder;
+    private static final String s = StringUtil.newRandomString(1000);
 
-    private Solution solution;
+    private static final Solution solution = new Solution();
 
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder()
@@ -28,34 +28,24 @@ public class SolutionBenchMark3 {
         new Runner(opt).run();
     }
 
-    @Setup
-    public void setup() {
-        solution = new Solution();
-        Random r = new Random();
-        stringBuilder = new StringBuilder();
-        for (int i = 0; i < 1000; i++) {
-            stringBuilder.append((char) (r.nextInt(128)));
-        }
-    }
-
     @Benchmark
     public int benchLengthOfLongestSubstring1() {
-        return solution.lengthOfLongestSubstring1(stringBuilder.toString());
+        return solution.lengthOfLongestSubstring1(s);
     }
 
     @Benchmark
     public int benchLengthOfLongestSubstring2() {
-        return solution.lengthOfLongestSubstring2(stringBuilder.toString());
+        return solution.lengthOfLongestSubstring2(s);
     }
 
     @Benchmark
     public int benchLengthOfLongestSubstring3() {
-        return solution.lengthOfLongestSubstring3(stringBuilder.toString());
+        return solution.lengthOfLongestSubstring3(s);
     }
 
     @Benchmark
     public int benchLengthOfLongestSubstring4() {
-        return solution.lengthOfLongestSubstring4(stringBuilder.toString());
+        return solution.lengthOfLongestSubstring4(s);
     }
 
 }

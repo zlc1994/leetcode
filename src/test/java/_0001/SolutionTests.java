@@ -6,9 +6,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionTests {
-    private final static Solution solution = new Solution();
+    private static final Solution solution = new Solution();
 
-    private final static int[] nums = {2, 7, 11, 15};
+    private static final int[] nums = {2, 7, 11, 15};
 
     @Test
     @DisplayName("nums[0] + nums[1] = 2 + 7 = 9")
