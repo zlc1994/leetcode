@@ -1,5 +1,8 @@
 package _0006;
 
+import java.util.ArrayList;
+import java.util.List;
+
 //6. ZigZag Conversion
 //
 // The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
@@ -28,6 +31,10 @@ package _0006;
 //P     I
 class Solution {
     public String convert(String s, int numRows) {
+        return convert1(s, numRows);
+    }
+
+    public String convert1(String s, int numRows) {
         int n = s.length();
 
         if (n == 0) {
@@ -38,57 +45,29 @@ class Solution {
             return s;
         }
 
-        int gap = numRows - 2;
-        int x = n / (gap + numRows);
-        int y = n % (gap + numRows);
-        int cols;
+        List<StringBuilder> stringBuilders = new ArrayList<>();
 
-        if (y == 0) {
-            cols = x * (gap + 1);
-        } else if (y <= numRows) {
-            cols = x * (gap + 1) + 1;
-        } else {
-            cols = x * (gap + 1) + y - numRows + 1;
+        for (int i = 0; i < Math.min(numRows, n); i++) {
+            stringBuilders.add(new StringBuilder());
         }
 
-        char[][] g = new char[numRows][cols];
-
-        int a, b, xAxis, yAxis;
+        int currentRow = 0;
+        boolean goingDown = false;
 
         for (int i = 0; i < n; i++) {
-            a = i / (gap + numRows);
-            b = i % (gap + numRows);
-
-            if (b == gap + numRows - 1) {
-                xAxis = 1;
-                yAxis = (1 + gap) * (a + 1) - 1;
-            } else if (b < numRows) {
-                xAxis = b;
-                yAxis = (1 + gap) * a;
-            } else {
-                xAxis = 2 * numRows - b - 2;
-                yAxis = (1 + gap) * a + (b - numRows + 1);
+            stringBuilders.get(currentRow).append(s.charAt(i));
+            if (currentRow == 0 || currentRow == numRows - 1) {
+                goingDown = !goingDown;
             }
-
-            g[xAxis][yAxis] = s.charAt(i);
+            currentRow += goingDown ? 1 : -1;
         }
 
-        StringBuilder stringBuilder = new StringBuilder(n);
+        StringBuilder stringBuilder = new StringBuilder();
 
-        for (int i = 0; i < numRows; i++) {
-            for (int j = 0; j < cols; j++) {
-                if (g[i][j] != 0) {
-                    stringBuilder.append(g[i][j]);
-                }
-            }
+        for (StringBuilder stringBuilder1 : stringBuilders) {
+            stringBuilder.append(stringBuilder1);
         }
 
         return stringBuilder.toString();
-    }
-
-    public static void main(String[] args) {
-        Solution s = new Solution();
-
-        System.out.println(s.convert("abcde", 3));
     }
 }
