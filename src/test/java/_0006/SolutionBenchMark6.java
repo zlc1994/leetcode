@@ -1,4 +1,4 @@
-package _0003;
+package _0006;
 
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.runner.Runner;
@@ -10,16 +10,18 @@ import util.StringUtil;
 import java.util.concurrent.TimeUnit;
 
 @BenchmarkMode(Mode.AverageTime)
-@OutputTimeUnit(TimeUnit.MILLISECONDS)
+@OutputTimeUnit(TimeUnit.NANOSECONDS)
 @State(Scope.Benchmark)
-public class SolutionBenchMark3 {
-    private static final String s = StringUtil.newRandomString(1000);
+public class SolutionBenchMark6 {
+    private static final String s = StringUtil.newRandomString(10000);
+
+    private static final int numRows = 100;
 
     private static final Solution solution = new Solution();
 
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder()
-                .include(SolutionBenchMark3.class.getSimpleName())
+                .include(SolutionBenchMark6.class.getSimpleName())
                 .forks(1)
                 .warmupIterations(5)
                 .measurementIterations(5)
@@ -29,23 +31,12 @@ public class SolutionBenchMark3 {
     }
 
     @Benchmark
-    public int benchLengthOfLongestSubstring1() {
-        return solution.lengthOfLongestSubstring1(s);
+    public String benchMarkConvert1() {
+        return solution.convert1(s, numRows);
     }
 
     @Benchmark
-    public int benchLengthOfLongestSubstring2() {
-        return solution.lengthOfLongestSubstring2(s);
+    public String benchMarkConvert2() {
+        return solution.convert2(s, numRows);
     }
-
-    @Benchmark
-    public int benchLengthOfLongestSubstring3() {
-        return solution.lengthOfLongestSubstring3(s);
-    }
-
-    @Benchmark
-    public int benchLengthOfLongestSubstring4() {
-        return solution.lengthOfLongestSubstring4(s);
-    }
-
 }

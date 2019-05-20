@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
-@State(Scope.Thread)
+@State(Scope.Benchmark)
 public class SolutionBenchMark4 {
     private int[] nums1 = new int[1000000];
 

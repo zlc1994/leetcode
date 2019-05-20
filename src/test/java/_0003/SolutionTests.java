@@ -5,13 +5,13 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionTests {
-    private final static String STRING1 = "pwwkew";
+    private static final String STRING1 = "pwwkew";
 
-    private final static String STRING2 = "bbbbb";
+    private static final String STRING2 = "bbbbb";
 
-    private final static String STRING3 = "abcabcbb";
+    private static final String STRING3 = "abcabcbb";
 
-    private final static Solution s = new Solution();
+    private static final Solution s = new Solution();
 
     @Test
     void testLengthOfLongestSubstring1() {
