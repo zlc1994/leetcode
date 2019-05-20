@@ -70,4 +70,30 @@ class Solution {
 
         return stringBuilder.toString();
     }
+
+    public String convert2(String s, int numRows) {
+        int n = s.length();
+
+        if (n == 0) {
+            return "";
+        }
+
+        if (numRows == 1) {
+            return s;
+        }
+
+        StringBuilder stringBuilder = new StringBuilder();
+        int cycleLen = 2 * numRows - 2;
+
+        for (int i = 0; i < numRows; i++) {
+            for (int j = 0; i + j < n; j += cycleLen) {
+                stringBuilder.append(s.charAt(i + j));
+                if (i != 0 && i != numRows - 1 && j + cycleLen - i < n) {
+                    stringBuilder.append(s.charAt(j + cycleLen - i));
+                }
+            }
+        }
+
+        return stringBuilder.toString();
+    }
 }

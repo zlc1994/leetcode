@@ -10,8 +10,14 @@ class SolutionTests {
     private static final Solution s = new Solution();
 
     @Test
-    void testCovert() {
-        assertEquals("PAHNAPLSIIGYIR", s.convert(s1, 3));
-        assertEquals("PINALSIGYAHRPI", s.convert(s1, 4));
+    void testCovert1() {
+        assertEquals("PAHNAPLSIIGYIR", s.convert1(s1, 3));
+        assertEquals("PINALSIGYAHRPI", s.convert1(s1, 4));
+    }
+
+    @Test
+    void testCovert2() {
+        assertEquals("PAHNAPLSIIGYIR", s.convert2(s1, 3));
+        assertEquals("PINALSIGYAHRPI", s.convert2(s1, 4));
     }
 }
