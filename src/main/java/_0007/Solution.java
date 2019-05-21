@@ -7,11 +7,11 @@ class Solution {
         while (x != 0) {
             int y = x % 10;
 
-            if (res > Integer.MAX_VALUE / 10 || (res == Integer.MAX_VALUE / 10 && y >= 7)) {
+            if (res > Integer.MAX_VALUE / 10 || (res == Integer.MAX_VALUE / 10 && y > 7)) {
                 return 0;
             }
 
-            if (res < Integer.MIN_VALUE / 10 || (res == Integer.MIN_VALUE / 10 && y <= -8)) {
+            if (res < Integer.MIN_VALUE / 10 || (res == Integer.MIN_VALUE / 10 && y < -8)) {
                 return 0;
             }
 
