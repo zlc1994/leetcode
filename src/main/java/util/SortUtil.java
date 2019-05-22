@@ -101,29 +101,16 @@ public class SortUtil {
         }
     }
 
-    public static void shellSort(int[] array) {
+    public static void shellSort(int[] array, int[] seq) {
         int n = array.length;
-        int k = 0;
-        int h = 0;
+        int m = seq.length;
 
-        List<Integer> seq = new ArrayList<>();
-
-        while (h < n) {
-            if (k % 2 == 0) {
-                int pow = 1 << (k / 2);
-                h = 9 * pow * pow - 9 * pow + 1;
-            } else {
-                int a = 1 << k;
-                int b = 1 << ((k + 1)>>1);
-                h = 8 * a - 6 * b + 1;
+        for (int x = m - 1; x >= 0; x--) {
+            if (seq[x] > n) {
+                continue;
             }
 
-            seq.add(h);
-            k++;
-        }
-
-        for (int x = k - 1; x >= 0; x--) {
-            h = seq.get(x);
+            int h = seq[x];
             for (int i = h; i < n; i++) {
                 // do insertion sort in gap h
                 int tmp = array[i], j = i - h;

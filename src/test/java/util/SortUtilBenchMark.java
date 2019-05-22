@@ -23,6 +23,12 @@ public class SortUtilBenchMark {
 
     private int[] reversedArray;
 
+    private static final int[] seq1 = {1, 5, 19, 41, 109, 209, 505, 929};
+
+    private static final int[] seq2 = {1, 8, 23, 77, 281, 1073, 4193};
+
+    private static final int[] seq3 = {1, 4, 13, 40, 121, 364, 1093, 3280};
+
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder()
                 .include(SortUtilBenchMark.class.getSimpleName())
@@ -43,63 +49,74 @@ public class SortUtilBenchMark {
         reversedArray = SortUtil.newReversedArray(length);
     }
 
+//    @Benchmark
+//    public void benchMarkSelectionSortWithRandomArray() {
+//        SortUtil.selectionSort(randomArray);
+//    }
+//
+//    @Benchmark
+//    public void benchMarkSelectionSortWithSortedArray() {
+//        SortUtil.selectionSort(sortedArray);
+//    }
+//
+//    @Benchmark
+//    public void benchMarkSelectionSortWithAlmostSortedArray() {
+//        SortUtil.selectionSort(almostSortedArray);
+//    }
+//
+//    @Benchmark
+//    public void benchMarkSelectionSortWithReversedArray() {
+//        SortUtil.selectionSort(reversedArray);
+//    }
+//
+//    @Benchmark
+//    public void benchMarkInsertionSortWithRandomArray() {
+//        SortUtil.insertionSort(randomArray);
+//    }
+//
+//    @Benchmark
+//    public void benchMarkInsertionSortWithSortedArray() {
+//        SortUtil.insertionSort(sortedArray);
+//    }
+//
+//    @Benchmark
+//    public void benchMarkInsertionSortWithAlmostSortedArray() {
+//        SortUtil.insertionSort(almostSortedArray);
+//    }
+//
+//    @Benchmark
+//    public void benchMarkInsertionSortWithReversedArray() {
+//        SortUtil.insertionSort(reversedArray);
+//    }
+
     @Benchmark
-    public void benchMarkSelectionSortWithRandomArray() {
-        SortUtil.selectionSort(randomArray);
+    public void benchMarkShellSortWithRandomArray1() {
+        SortUtil.shellSort(randomArray, seq1);
     }
 
     @Benchmark
-    public void benchMarkSelectionSortWithSortedArray() {
-        SortUtil.selectionSort(sortedArray);
+    public void benchMarkShellSortWithRandomArray2() {
+        SortUtil.shellSort(randomArray, seq2);
     }
 
     @Benchmark
-    public void benchMarkSelectionSortWithAlmostSortedArray() {
-        SortUtil.selectionSort(almostSortedArray);
+    public void benchMarkShellSortWithRandomArray3() {
+        SortUtil.shellSort(randomArray, seq3);
     }
 
-    @Benchmark
-    public void benchMarkSelectionSortWithReversedArray() {
-        SortUtil.selectionSort(reversedArray);
-    }
 
-    @Benchmark
-    public void benchMarkInsertionSortWithRandomArray() {
-        SortUtil.insertionSort(randomArray);
-    }
-
-    @Benchmark
-    public void benchMarkInsertionSortWithSortedArray() {
-        SortUtil.insertionSort(sortedArray);
-    }
-
-    @Benchmark
-    public void benchMarkInsertionSortWithAlmostSortedArray() {
-        SortUtil.insertionSort(almostSortedArray);
-    }
-
-    @Benchmark
-    public void benchMarkInsertionSortWithReversedArray() {
-        SortUtil.insertionSort(reversedArray);
-    }
-
-    @Benchmark
-    public void benchMarkShellSortWithRandomArray() {
-        SortUtil.shellSort(randomArray);
-    }
-
-    @Benchmark
-    public void benchMarkShellSortWithSortedArray() {
-        SortUtil.shellSort(sortedArray);
-    }
-
-    @Benchmark
-    public void benchMarkShellSortWithAlmostSortedArray() {
-        SortUtil.shellSort(almostSortedArray);
-    }
-
-    @Benchmark
-    public void benchMarkShellSortWithReversedArray() {
-        SortUtil.shellSort(reversedArray);
-    }
+//    @Benchmark
+//    public void benchMarkShellSortWithSortedArray() {
+//        SortUtil.shellSort(sortedArray);
+//    }
+//
+//    @Benchmark
+//    public void benchMarkShellSortWithAlmostSortedArray() {
+//        SortUtil.shellSort(almostSortedArray);
+//    }
+//
+//    @Benchmark
+//    public void benchMarkShellSortWithReversedArray() {
+//        SortUtil.shellSort(reversedArray);
+//    }
 }

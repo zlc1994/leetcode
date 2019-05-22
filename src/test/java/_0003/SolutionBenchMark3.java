@@ -1,6 +1,7 @@
 package _0003;
 
 import org.openjdk.jmh.annotations.*;
+import org.openjdk.jmh.results.format.ResultFormatType;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
@@ -10,10 +11,10 @@ import util.StringUtil;
 import java.util.concurrent.TimeUnit;
 
 @BenchmarkMode(Mode.AverageTime)
-@OutputTimeUnit(TimeUnit.MILLISECONDS)
+@OutputTimeUnit(TimeUnit.NANOSECONDS)
 @State(Scope.Benchmark)
 public class SolutionBenchMark3 {
-    private static final String s = StringUtil.newRandomString(1000);
+    private static final String s = "abcdefgg";
 
     private static final Solution solution = new Solution();
 
@@ -23,6 +24,7 @@ public class SolutionBenchMark3 {
                 .forks(1)
                 .warmupIterations(5)
                 .measurementIterations(5)
+                .resultFormat(ResultFormatType.CSV)
                 .build();
 
         new Runner(opt).run();

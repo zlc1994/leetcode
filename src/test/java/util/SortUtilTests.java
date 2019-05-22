@@ -7,6 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SortUtilTests {
     private static final int length = 100;
+
+    private static final int[] seq = {1, 5, 19, 41, 109, 209, 505, 929, 2161, 3905, 8929,
+            16001, 36289, 64769, 146305, 260609};
     @Test
     void testIsSorted() {
         int[] randomArray = SortUtil.newRandomArray(length);
@@ -33,7 +36,7 @@ public class SortUtilTests {
     @Test
     void testShellSort() {
         int[] array = SortUtil.newRandomArray(length);
-        SortUtil.shellSort(array);
+        SortUtil.shellSort(array, seq);
         assertTrue(SortUtil.isSorted(array));
     }
 }
