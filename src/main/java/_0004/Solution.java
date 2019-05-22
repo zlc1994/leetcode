@@ -102,9 +102,9 @@ class Solution {
             int j = (m + n + 1) / 2 - i;
 
 
-            if (i < iMax && nums2[j-1] > nums1[i]) {
+            if (i < m && nums2[j-1] > nums1[i]) {
                 iMin = i + 1; // i is too small, increase i
-            } else if (i > iMin && nums1[i-1] > nums2[j]) {
+            } else if (i > 0 && nums1[i-1] > nums2[j]) {
                 iMax = i - 1; // i is too large, decrease i
             } else {
                 // i is perfect
