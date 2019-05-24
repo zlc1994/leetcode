@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 public class SolutionBenchMark5 {
     private Solution solution = new Solution();
 
-    private String s = "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
+    private String s = "babcbabcbaccba";
 
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder()

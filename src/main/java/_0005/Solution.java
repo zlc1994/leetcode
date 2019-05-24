@@ -1,5 +1,7 @@
 package _0005;
 
+import java.util.Arrays;
+
 //5. Longest Palindromic Substring
 //
 // Medium
@@ -131,6 +133,7 @@ class Solution {
         t[m-2] = '#';
         t[m-1] = '$';
 
+        int maxP = 0, maxI = 0;
         for (int i = 1; i < m - 1; i++) {
             iMirror = c - (i - c);
 
@@ -146,11 +149,7 @@ class Solution {
                 c = i;
                 r = i + p[i];
             }
-        }
 
-        int maxP = 0, maxI = 0;
-
-        for (int i = 1; i < m - 1; i++) {
             if (p[i] > maxP) {
                 maxP = p[i];
                 maxI = i;
