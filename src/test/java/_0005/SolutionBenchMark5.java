@@ -1,6 +1,7 @@
 package _0005;
 
 import org.openjdk.jmh.annotations.*;
+import org.openjdk.jmh.results.format.ResultFormatType;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
@@ -23,6 +24,7 @@ public class SolutionBenchMark5 {
                 .forks(1)
                 .warmupIterations(5)
                 .measurementIterations(5)
+                .resultFormat(ResultFormatType.CSV)
                 .build();
 
         new Runner(opt).run();
